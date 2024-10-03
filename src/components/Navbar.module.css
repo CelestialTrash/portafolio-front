@@ -1,0 +1,120 @@
+/* Estilos generales del navbar */
+/* Navbar layout and spacing */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbarList {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+/* Link styles */
+.navbarItem a {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+  position: relative; /* Needed for ::before and ::after positioning */
+}
+
+/* 'X' appears before the link on hover */
+.navbarItem a::before {
+  content: 'x'; 
+  position: absolute;
+  left: -20px;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.7s ease, left 0.7s ease;
+}
+
+/* Underscore appears after the link on hover */
+.navbarItem a::after {
+  content: '_'; 
+  position: absolute;
+  right: -20px;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.7s ease, right 0.7s ease;
+}
+
+/* Hover effects for the 'X' and underscore */
+.navbarItem a:hover::before {
+  opacity: 1; 
+  left: -20px;
+}
+
+.navbarItem a:hover::after {
+  opacity: 1; 
+  right: -10px;
+}
+
+/* Change link color on hover (light mode) */
+.navbarItem a:hover {
+  color: #a3bffa;
+}
+
+/* Light mode (angelical) styles */
+.light .navbarItem a::before,
+.light .navbarItem a::after {
+  color: #000000; /* 'X' and underscore color in light mode */
+}
+
+.light .navbarItem a:hover {
+  color: #333436; /* Link hover color in light mode */
+}
+
+/* Dark mode (demoníaco) styles */
+.dark .navbarItem a::before,
+.dark .navbarItem a::after {
+  color: #ffffff; /* 'X' and underscore color in dark mode */
+}
+
+.dark .navbarItem a:hover {
+  color: #fffffe; /* Link hover color in dark mode */
+}
+
+/* Theme toggle button */
+.themeToggle {
+  font-family: 'UnifrakturMaguntia', serif; 
+  font-size: 1rem;
+  background: none;
+  border: 2px solid;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Light mode button styles */
+.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.light .themeToggle {
+  border-color: #000000;
+  color: #000000;
+}
+
+.light .themeToggle:hover {
+  background-color: #70d4ca;
+  color: #ffffff;
+}
+
+/* Dark mode button styles */
+.dark {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.dark .themeToggle {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.dark .themeToggle:hover {
+  background-color: #ff6347;
+  color: #000000;
+}

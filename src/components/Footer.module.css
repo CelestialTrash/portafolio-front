@@ -1,0 +1,46 @@
+/* src/components/Footer.module.css */
+
+/* Footer container */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: #f0f0f0; /* Fondo del footer, puedes cambiarlo según el tema */
+    color: #333;
+    font-family: 'Satoshi', sans-serif;
+    position: relative;
+    height: 100px; /* Ajustable según el tamaño que desees */
+  }
+  
+  /* Sección para las tecnologías */
+  .techSection {
+    font-size: 1rem;
+  }
+  
+  /* Sección para "Made with" y línea */
+  .madeWithSection {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+  }
+  
+  /* Línea delgada que guía la mirada */
+  .line {
+    display: inline-block;
+    width: 80px; /* Longitud de la línea */
+    height: 1px;
+    background-color: #666; /* Color de la línea */
+    margin-right: 10px; /* Espacio entre la línea y el texto */
+  }
+  
+  /* Texto "Made with" */
+  .madeWithText {
+    font-size: 0.9rem;
+    color: #333;
+    font-family: 'Satoshi', sans-serif;
+  }
+  
