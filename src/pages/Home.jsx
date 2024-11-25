@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import styles from './Home.module.css';
 import ParticlesBackground from '../components/ParticlesBackground';
 /* import CustomCursor from '../components/CustomCursor'; */
+import photo from "../assets/images/1b_DSC0244.jpg"
 
 const Home = ({ isDarkMode }) => {
   const bioRef = useRef(null);

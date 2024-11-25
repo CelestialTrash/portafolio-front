@@ -1,4 +1,3 @@
-// src/pages/Admin.jsx
 import React, { useState, useEffect } from 'react';
 import styles from './Admin.module.css';
 
@@ -25,7 +24,7 @@ const Admin = () => {
                 setNewProject({ title: '', description: '', image: '', link: '' });
                 break;
             case 'soundDesign':
-                setNewProject({ title: '', video: '', link: '' }); // No description field
+                setNewProject({ title: '', video: '', link: '' });
                 break;
             default:
                 setNewProject({});
@@ -34,10 +33,11 @@ const Admin = () => {
 
     const fetchProjects = async () => {
         const endpointMap = {
-            music: 'https://aquiles-hinestrosa.netlify.app/api/music',
-            dev: 'https://aquiles-hinestrosa.netlify.app/api/dev',
-            soundDesign: 'https://aquiles-hinestrosa.netlify.app/api/sound-design'
+            music: 'https://aquiles-hinestrosa-back.vercel.app/api/music',
+            dev: 'https://aquiles-hinestrosa-back.vercel.app/api/dev',
+            soundDesign: 'https://aquiles-hinestrosa-back.vercel.app/api/sound-design',
         };
+
         try {
             const response = await fetch(endpointMap[currentSection]);
             const data = await response.json();
@@ -52,12 +52,11 @@ const Admin = () => {
     const createProject = async () => {
         const token = localStorage.getItem('authToken');
         const endpointMap = {
-            music: 'https://aquiles-hinestrosa.netlify.app/api/music',
-            dev: 'https://aquiles-hinestrosa.netlify.app/api/dev',
-            soundDesign: 'https://aquiles-hinestrosa.netlify.app/api/sound-design'
+            music: 'https://aquiles-hinestrosa-back.vercel.app/api/music',
+            dev: 'https://aquiles-hinestrosa-back.vercel.app/api/dev',
+            soundDesign: 'https://aquiles-hinestrosa-back.vercel.app/api/sound-design',
         };
 
-        // Validar campos requeridos
         if (
             (currentSection === 'dev' &&
                 (!newProject.title || !newProject.description || !newProject.image || !newProject.link)) ||
@@ -75,8 +74,6 @@ const Admin = () => {
         );
 
         try {
-            console.log('Datos enviados al backend:', filteredProject);
-
             const response = await fetch(endpointMap[currentSection], {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
@@ -110,81 +107,83 @@ const Admin = () => {
             </div>
 
             <h2>{isEditing ? 'Editar Proyecto' : 'Agregar Nuevo Proyecto'}</h2>
-            <form className={styles.projectForm} onSubmit={(e) => {
-    e.preventDefault();
-    createProject();
-}}>
-    <input
-        type="text"
-        name="title"
-        value={newProject.title || ''}
-        onChange={handleInputChange}
-        placeholder="Título"
-    />
-    {currentSection === 'music' && (
-        <>
-            <input
-                type="text"
-                name="artist"
-                value={newProject.artist || ''}
-                onChange={handleInputChange}
-                placeholder="Artista"
-            />
-            <input
-                type="text"
-                name="label"
-                value={newProject.label || ''}
-                onChange={handleInputChange}
-                placeholder="Sello"
-            />
-            <input
-                type="text"
-                name="image"
-                value={newProject.image || ''}
-                onChange={handleInputChange}
-                placeholder="URL de la Imagen"
-            />
-        </>
-    )}
-    {currentSection === 'dev' && (
-        <>
-            <input
-                type="text"
-                name="description"
-                value={newProject.description || ''}
-                onChange={handleInputChange}
-                placeholder="Descripción"
-            />
-            <input
-                type="text"
-                name="image"
-                value={newProject.image || ''}
-                onChange={handleInputChange}
-                placeholder="URL de la Imagen"
-            />
-        </>
-    )}
-    {currentSection === 'soundDesign' && (
-        <>
-            <input
-                type="text"
-                name="video"
-                value={newProject.video || ''}
-                onChange={handleInputChange}
-                placeholder="URL del Video"
-            />
-        </>
-    )}
-    {/* Campo común para el link */}
-    <input
-        type="text"
-        name="link"
-        value={newProject.link || ''}
-        onChange={handleInputChange}
-        placeholder="URL del Proyecto"
-    />
-    <button type="submit">Crear Proyecto</button>
-</form>
+            <form
+                className={styles.projectForm}
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    createProject();
+                }}
+            >
+                <input
+                    type="text"
+                    name="title"
+                    value={newProject.title || ''}
+                    onChange={handleInputChange}
+                    placeholder="Título"
+                />
+                {currentSection === 'music' && (
+                    <>
+                        <input
+                            type="text"
+                            name="artist"
+                            value={newProject.artist || ''}
+                            onChange={handleInputChange}
+                            placeholder="Artista"
+                        />
+                        <input
+                            type="text"
+                            name="label"
+                            value={newProject.label || ''}
+                            onChange={handleInputChange}
+                            placeholder="Sello"
+                        />
+                        <input
+                            type="text"
+                            name="image"
+                            value={newProject.image || ''}
+                            onChange={handleInputChange}
+                            placeholder="URL de la Imagen"
+                        />
+                    </>
+                )}
+                {currentSection === 'dev' && (
+                    <>
+                        <input
+                            type="text"
+                            name="description"
+                            value={newProject.description || ''}
+                            onChange={handleInputChange}
+                            placeholder="Descripción"
+                        />
+                        <input
+                            type="text"
+                            name="image"
+                            value={newProject.image || ''}
+                            onChange={handleInputChange}
+                            placeholder="URL de la Imagen"
+                        />
+                    </>
+                )}
+                {currentSection === 'soundDesign' && (
+                    <>
+                        <input
+                            type="text"
+                            name="video"
+                            value={newProject.video || ''}
+                            onChange={handleInputChange}
+                            placeholder="URL del Video"
+                        />
+                    </>
+                )}
+                <input
+                    type="text"
+                    name="link"
+                    value={newProject.link || ''}
+                    onChange={handleInputChange}
+                    placeholder="URL del Proyecto"
+                />
+                <button type="submit">Crear Proyecto</button>
+            </form>
         </div>
     );
 };

@@ -1,4 +1,3 @@
-// src/pages/SoundDesign.jsx
 import React, { useEffect, useState } from 'react';
 import styles from './SoundDesign.module.css';
 import ParticlesBackground from '../components/ParticlesBackground';
@@ -11,7 +10,7 @@ const SoundDesign = ({ isDarkMode }) => {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/sound-design');
+                const response = await fetch('https://aquiles-hinestrosa-back.vercel.app/api/sound-design');
                 const data = await response.json();
                 setProjects(data);
             } catch (error) {
@@ -24,7 +23,6 @@ const SoundDesign = ({ isDarkMode }) => {
 
     const loopedProjects = [...projects, ...projects, ...projects];
 
-    // Fullscreen toggle functions
     const openFullscreen = (index) => {
         setCurrentIndex(index);
         setIsFullscreen(true);
@@ -44,7 +42,6 @@ const SoundDesign = ({ isDarkMode }) => {
     };
 
     return (
-        
         <div className={`${styles.soundDesignPage} ${isDarkMode ? styles.dark : styles.light}`}>
             <ParticlesBackground isDarkMode={isDarkMode} />
             <div className={styles.carousel}>
@@ -71,15 +68,21 @@ const SoundDesign = ({ isDarkMode }) => {
 
             {isFullscreen && currentIndex !== null && (
                 <div className={styles.fullscreenOverlay}>
-                    <button className={styles.closeButton} onClick={closeFullscreen}>✕</button>
-                    <button className={styles.prevButton} onClick={prevVideo}>〈</button>
+                    <button className={styles.closeButton} onClick={closeFullscreen}>
+                        ✕
+                    </button>
+                    <button className={styles.prevButton} onClick={prevVideo}>
+                        〈
+                    </button>
                     <video
                         src={projects[currentIndex].video}
                         className={styles.fullscreenVideo}
                         controls
                         autoPlay
                     />
-                    <button className={styles.nextButton} onClick={nextVideo}>〉</button>
+                    <button className={styles.nextButton} onClick={nextVideo}>
+                        〉
+                    </button>
                 </div>
             )}
         </div>
