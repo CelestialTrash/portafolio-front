@@ -34,9 +34,9 @@ const Admin = () => {
 
     const fetchProjects = async () => {
         const endpointMap = {
-            music: 'http://localhost:5000/api/music',
-            dev: 'http://localhost:5000/api/dev',
-            soundDesign: 'http://localhost:5000/api/sound-design'
+            music: 'https://aquiles-hinestrosa.netlify.app/#//api/music',
+            dev: 'https://aquiles-hinestrosa.netlify.app/#//api/dev',
+            soundDesign: 'https://aquiles-hinestrosa.netlify.app/#//api/sound-design'
         };
         try {
             const response = await fetch(endpointMap[currentSection]);
@@ -52,9 +52,9 @@ const Admin = () => {
     const createProject = async () => {
         const token = localStorage.getItem('authToken');
         const endpointMap = {
-            music: 'http://localhost:5000/api/music',
-            dev: 'http://localhost:5000/api/dev',
-            soundDesign: 'http://localhost:5000/api/sound-design'
+            music: 'https://aquiles-hinestrosa.netlify.app/#//api/music',
+            dev: 'https://aquiles-hinestrosa.netlify.app/#//api/dev',
+            soundDesign: 'https://aquiles-hinestrosa.netlify.app/#//api/sound-design'
         };
 
         // Validar campos requeridos
