@@ -1,0 +1,165 @@
+/* Contenedor principal */
+.container {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Modo claro y oscuro */
+.light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.dark {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Dark mode settings for specific headings */
+.dark .header h1,
+.dark .bioHeader h1,
+.dark .skillsSection h2 {
+    color: #ffffff; /* Set to white for visibility in dark mode */
+}
+
+/* Sección de header alineada a la izquierda y con textos más grandes */
+.header {
+    text-align: left;
+    padding: 4rem 5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.header h1 {
+    font-size: 3.5rem;
+    letter-spacing: 0.2rem;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+    text-align: left;
+}
+
+.header p {
+    font-size: 1.8rem;
+    line-height: 1.8;
+    margin-top: 1rem;
+    transition: color 0.3s ease;
+}
+
+/* Sección de biografía */
+.bioSection {
+    padding: 1rem 5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
+}
+
+.bioContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.bioText {
+    max-width: 60%;
+}
+
+.bioHeader h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.2rem;
+    text-align: left;
+}
+
+/* Imagen alineada a la derecha con hover zoom y aura */
+.bioPhoto {
+    width: 25rem;
+    height: 25rem;
+    object-fit: cover;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 2rem;
+    position: relative;
+    margin-bottom: 3rem;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Aura de luz en modo oscuro y de oscuridad en modo claro */
+.dark .bioPhoto {
+    box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.1);
+}
+
+.light .bioPhoto {
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para los enlaces de redes sociales */
+.socialLinks {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.skillsSection {
+    padding: 2rem 5rem;
+    margin-bottom: 5rem;
+    z-index: 2;
+    position: relative;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.skillsSection h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.1rem;
+    text-align: left;
+}
+
+.skillsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 2rem 0;
+}
+
+.skillCard {
+    background-color: transparent;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.dark .skillCard {
+    color: #fff;
+}
+
+.light .skillCard {
+    color: #000;
+}
+
+.skillCard:hover {
+    transform: translateY(-15px);
+    z-index: 5;
+}

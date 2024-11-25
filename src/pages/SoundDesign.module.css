@@ -1,0 +1,140 @@
+/* src/pages/SoundDesign.module.css */
+
+.soundDesignPage {
+    padding-top: 5rem; /* Accounts for navbar space */
+    padding-bottom: 5rem; /* Accounts for footer space */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.dark {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Carousel container styling */
+.carousel {
+    display: flex;
+    gap: 0rem;
+    animation: scroll 30s linear infinite; /* Adjusted for smooth scrolling */
+    width: max-content; /* Allows content to extend beyond the viewport */
+    height: 70vh;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Carousel item with large video */
+.carouselItem {
+    width: 85vw; /* Controls the size of each video item */
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+    background-color: transparent;
+    margin-top: 5rem;
+    
+}
+
+/* Video styling for larger display */
+.video {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 12px;
+    will-change: transform;
+    cursor: pointer;
+}
+
+/* Project title below each video */
+.projectInfo {
+    
+    bottom: -2rem;
+    width: 100%;
+    text-align: center;
+}
+
+.projectTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.light .projectTitle {
+    color: #000000;
+}
+
+.dark .projectTitle {
+    color: #ffffff;
+}
+
+/* Continuous scrolling animation */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-240vw); /* Moves left by three items */
+    }
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+/* Fullscreen overlay styling */
+.fullscreenOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+}
+
+.fullscreenVideo {
+    width: 90vw;
+    height: auto;
+    max-height: 80vh;
+    border-radius: 8px;
+}
+
+.closeButton, .prevButton, .nextButton {
+    position: absolute;
+    font-size: 2rem;
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.closeButton {
+    top: 20px;
+    right: 20px;
+}
+
+.prevButton {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nextButton {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}

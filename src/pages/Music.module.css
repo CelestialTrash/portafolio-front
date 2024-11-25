@@ -1,0 +1,112 @@
+/* src/pages/Music.module.css */
+
+.musicPage {
+    padding: 4rem 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    z-index: 10;
+}
+
+/* Light and dark mode */
+.light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.dark {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Main title style */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Centered release list */
+.releaseList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2-column layout */
+    gap: 2rem;
+    width: 80%; /* Limit the grid to 80% of the screen width */
+    padding: 1rem 0;
+    justify-content: center;
+    align-items: start;
+}
+
+/* Release card layout */
+.releaseCard {
+    display: flex;
+    align-items: center;
+    background-color: #f8f8f8;
+    /* border-radius: 8px; */
+    padding: 1.5rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Full width within each grid column */
+    opacity: 1 !important; /* Ensure cards are fully visible */
+    visibility: visible !important; /* Ensure visibility is not affected */
+    transform: translateY(0); /* Fixes any potential issues with visibility */
+}
+
+.dark .releaseCard {
+    background-color: #141414;
+    color: #fff;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+/* Release card hover effect */
+.releaseCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Release image */
+.releaseImage {
+    width: 30%; /* 30% width within the card */
+    height: 150px;
+    /* border-radius: 4px; */
+    object-fit: cover;
+    margin-right: 1.5rem;
+}
+
+/* Information container */
+.releaseInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Title, artist, and label styling */
+.releaseTitle,
+.releaseArtist,
+.releaseLabel {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    font-weight: normal;
+}
+
+.releaseTitle {
+    font-weight: bold;
+}
+
+/* Link style */
+.releaseLink {
+    color: #1e90ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.dark .releaseLink {
+    color: #87ceeb;
+}
+
+.releaseLink:hover {
+    color: #104e8b;
+}

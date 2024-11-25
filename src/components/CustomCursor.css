@@ -6,10 +6,18 @@
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  border: 0.1px solid; /* Borde del círculo */
+  border: 2px solid;
   z-index: 9999;
-  backdrop-filter: blur(1px); /* Desenfoque dentro del círculo */
-  transition: left 0.08s ease-out, top 0.08s ease-out; /* Más rápido y suave */
+  backdrop-filter: blur(1.2px) saturate(0.5) contrast(5);
+  transition: width 0.3s ease, height 0.3s ease, border 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Agrandar el cursor cuando se haga clic */
+.cursor-circle.clicked {
+  width: 80px;
+  height: 80px;
+  border-width: 2px;
+  transition: width 0.2s ease, height 0.2s ease; /* Transición más rápida al hacer clic */
 }
 
 /* Icono de la cruz */
@@ -19,8 +27,18 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: filter 0.3s ease; /* Transición para el cambio de color */
-  z-index: 10000;
+  transition: opacity 0.3s ease; /* Transición para suavizar la desaparición */
+}
+
+/* Icono para la sección de Skills */
+.cursor-skill {
+  position: absolute;
+  font-size: 25px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #00ffff; /* Color llamativo para la sección de Skills */
+  transition: opacity 0.3s ease; /* Transición para suavizar la aparición */
 }
 
 /* Angel Mode (light) */
@@ -30,15 +48,41 @@
 }
 
 .angel-mode .cursor-cross {
-  filter: invert(0); /* La cruz es negra en Angel Mode */
+  filter: invert(0);
+}
+
+.angel-mode .cursor-skill {
+  filter: invert(0);
 }
 
 /* Demon Mode (dark) */
 .demon-mode .cursor-circle {
   border-color: white;
-  backdrop-filter: blur(0.2px); /* Desenfoque dentro del círculo */
+  backdrop-filter: blur(5px);
 }
 
 .demon-mode .cursor-cross {
-  filter: invert(1); /* La cruz se invierte a blanca en Demon Mode */
+  filter: invert(1);
+}
+
+.demon-mode .cursor-skill {
+  filter: invert(1);
+}
+
+/* Efecto especial para cuando el cursor está en la sección de skills */
+.in-skills {
+  width: 90px;
+  height: 90px;
+  backdrop-filter: saturate(2) hue-rotate(180deg);
+  transform: translate(-50%, -50%) scale(1.6);
+  border-color: #7a7a7a;
+}
+
+/* Ocultar la cruz y mostrar el ícono de skills en la sección de skills */
+.in-skills .cursor-cross {
+  opacity: 0; /* Hace que la cruz desaparezca suavemente */
+}
+
+.in-skills .cursor-skill {
+  opacity: 1; /* Asegura que el ícono de skills sea visible */
 }

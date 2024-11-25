@@ -1,46 +1,73 @@
-/* src/components/Footer.module.css */
-
 /* Footer container */
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
-    background-color: #f0f0f0; /* Fondo del footer, puedes cambiarlo según el tema */
-    color: #333;
-    font-family: 'Satoshi', sans-serif;
-    position: relative;
-    height: 100px; /* Ajustable según el tamaño que desees */
-  }
-  
-  /* Sección para las tecnologías */
-  .techSection {
-    font-size: 1rem;
-  }
-  
-  /* Sección para "Made with" y línea */
-  .madeWithSection {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    position: absolute;
-    right: 20px;
-    bottom: 10px;
-  }
-  
-  /* Línea delgada que guía la mirada */
-  .line {
-    display: inline-block;
-    width: 80px; /* Longitud de la línea */
-    height: 1px;
-    background-color: #666; /* Color de la línea */
-    margin-right: 10px; /* Espacio entre la línea y el texto */
-  }
-  
-  /* Texto "Made with" */
-  .madeWithText {
-    font-size: 0.9rem;
-    color: #333;
-    font-family: 'Satoshi', sans-serif;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+  font-family: 'Satoshi', sans-serif;
+  position: fixed;
+  bottom: 0; /* Mantener el footer en la parte inferior */
+  width: 100%; /* Asegura que el footer ocupe el ancho completo */
+  height: 100px; /* Ajustable según el tamaño que desees */
+  z-index: 1000; /* Sin px, asegura que esté por encima de otros elementos */
+  background-color: var(--footer-bg-color); /* Usar variable según el modo */
+  color: var(--footer-text-color); /* Usar variable para el color del texto */
+}
+
+/* --- Modo Angelical (Light Mode) --- */
+.light {
+  --footer-bg-color: #ffffff; /* Fondo claro */
+  --footer-text-color: #333; /* Texto oscuro */
+}
+
+.light .line {
+  background-color: #000000; /* Línea oscura en modo claro */
+}
+
+.light .madeWithText {
+  color: #333; /* Texto oscuro */
+}
+
+/* --- Modo Demoníaco (Dark Mode) --- */
+.dark {
+  --footer-bg-color: #000000; /* Fondo oscuro */
+  --footer-text-color: #ffffff; /* Texto claro */
+}
+
+.dark .line {
+  background-color: #ffffff; /* Línea clara en modo oscuro */
+}
+
+.dark .madeWithText {
+  color: #ffffff; /* Texto claro */
+}
+
+/* Sección para las tecnologías */
+.techSection {
+  font-size: 1rem;
+}
+
+/* Sección para "Made with" y línea */
+.madeWithSection {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+}
+
+/* Línea delgada que guía la mirada */
+.line {
+  display: inline-block;
+  width: 80px; /* Longitud de la línea */
+  height: 1px;
+  margin-right: 10px; /* Espacio entre la línea y el texto */
+}
+
+/* Texto "Made with" */
+.madeWithText {
+  font-size: 0.9rem;
+  font-family: 'Satoshi', sans-serif;
+}

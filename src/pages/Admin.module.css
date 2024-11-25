@@ -1,0 +1,106 @@
+/* src/pages/Admin.module.css */
+
+.adminPage {
+    max-width: 800px;
+    margin: auto;
+    padding: 100px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.sectionSelector {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.sectionSelector button {
+    padding: 8px 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sectionSelector button:hover {
+    background-color: #555;
+}
+
+.projectForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.projectForm input,
+.projectForm button {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.projectForm button {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.projectForm button:hover {
+    background-color: #555;
+}
+
+.projectList {
+    list-style: none;
+    padding: 0;
+}
+
+.projectItem {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.projectItem strong {
+    color: #333;
+}
+
+.projectItemButtons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.projectItem button {
+    padding: 6px 12px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.projectItem button:hover {
+    background-color: #c9302c;
+}
+
+.projectItem button.edit {
+    background-color: #5bc0de;
+}
+
+.projectItem button.edit:hover {
+    background-color: #31b0d5;
+}

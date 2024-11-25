@@ -1,0 +1,109 @@
+/* src/pages/Dev.module.css */
+
+.devPage {
+    padding: 4rem 5rem;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Light and dark mode */
+.light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.dark {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Page title styling with inherited color */
+.pageTitle {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: inherit; /* Inherit color from light/dark mode */
+}
+
+/* Project list layout */
+.projectList {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem 0;
+    align-items: center;
+    width: 100%;
+}
+
+/* Project card layout */
+.projectCard {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    background-color: #f8f8f8;
+    padding: 1.5rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 1;
+    visibility: visible;
+    z-index: 5;
+}
+
+.dark .projectCard {
+    background-color: #141414;
+    color: #fff;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.projectCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Project image */
+.projectImage {
+    width: 150px;
+    height: 150px;
+    
+    object-fit: cover;
+    margin-right: 1.5rem;
+}
+
+/* Information container */
+.projectInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Title, description, and link styling */
+.projectTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.projectDescription {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+.projectLink {
+    color: #1e90ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.dark .projectLink {
+    color: #87ceeb;
+}
+
+.projectLink:hover {
+    color: #104e8b;
+}
